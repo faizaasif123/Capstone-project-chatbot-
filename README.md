@@ -1,48 +1,45 @@
+# Day 10 – HisabDo AI Financial Assistant
 
-# Day 10 - HisabDo AI Financial Assistant
+## 📌 Project Overview
 
-## Project Overview
+This project is a Proof of Concept (POC) for an AI Financial Assistant for HisabDo.
 
-This project is a Proof of Concept for an AI Financial Assistant
-for HisabDo.
+The chatbot allows users to ask financial questions in natural language and receive answers based on the provided financial data.
 
-The chatbot allows users to ask questions about their financial
-information using natural language.
+## 🎯 Objective
 
-## Problem
+The objective is to demonstrate how Generative AI can be integrated into HisabDo to help users access their financial information through a conversational interface.
 
-Users may need to manually search through financial records,
-expenses and customer balances to find information.
+## 🤖 AI Feature
 
-## Proposed Solution
+### AI Financial Assistant / Chatbot
 
-An AI Financial Assistant can understand natural-language
-questions and provide answers based on the user's financial data.
+The chatbot can answer questions such as:
 
-## Example
+- How much did I spend this month?
+- Who owes me the most?
+- How much does Ahmed owe me?
+- What are my total receivables?
+- What are my total payables?
+- How much did I spend on transport?
 
-User:
+## 🔄 Workflow
 
-How much did I spend this month?
+User Question
+↓
+FastAPI API
+↓
+Financial Data
+↓
+Gemini AI Model
+↓
+AI Generated Response
+↓
+User
 
-AI:
-
-Your total monthly expenses are PKR 45,000.
-
-## Features
-
-- Natural language financial questions
-- Financial data context
-- AI-generated responses
-- FastAPI REST API
-- Input validation
-- JSON responses
-
-## Input
-
-Example:
+## 📥 Sample Input
 
 ```json
 {
-    "question": "Who owes me the most?"
+  "question": "How much did I spend this month?"
 }
