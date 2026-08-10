@@ -1,0 +1,51 @@
+{
+    "business": {
+        "name": "ABC General Store",
+        "currency": "PKR"
+    },
+
+    "summary": {
+        "monthly_income": 125000,
+        "monthly_expenses": 45000,
+        "receivables": 70500,
+        "payables": 25000
+    },
+
+    "customers": [
+        {
+            "name": "Ahmed",
+            "balance": 35000
+        },
+        {
+            "name": "Sara",
+            "balance": 12000
+        },
+        {
+            "name": "Bilal",
+            "balance": 18500
+        },
+        {
+            "name": "Fatima",
+            "balance": 5000
+        }
+    ],
+
+    "expenses": [
+        {
+            "category": "Transport",
+            "amount": 18500
+        },
+        {
+            "category": "Utilities",
+            "amount": 12000
+        },
+        {
+            "category": "Food",
+            "amount": 8500
+        },
+        {
+            "category": "Shopping",
+            "amount": 6000
+        }
+    ]
+}
