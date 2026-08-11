@@ -28,3 +28,23 @@ The following examples demonstrate how the HisabDo AI Financial Assistant respon
   "question": "Who owes me the most?",
   "answer": "Ahmed owes you PKR 35,000, which is the highest outstanding balance."
 }
+
+
+---
+# Day 11 – Sample Inputs and Outputs
+
+## AI Financial Assistant POC
+
+These tests demonstrate application-style requests, AI responses, and invalid input handling.
+
+---
+
+# Test 1 – Monthly Expense Summary
+
+## Input
+
+```json
+{
+    "user_id": "USR001",
+    "question": "How much did I spend this month?"
+}
