@@ -3,7 +3,7 @@
 
 # `architecture.md`
 
-```markdown
+
 # Day 10 – AI Financial Assistant Architecture
 
 ## 1. Overview
