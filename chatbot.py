@@ -5,68 +5,80 @@ from dotenv import load_dotenv
 from google import genai
 
 
-# Load environment variables
 load_dotenv()
 
-# Get Gemini API key
 api_key = os.getenv("GEMINI_API_KEY")
 
-# Create Gemini client
 client = genai.Client(api_key=api_key)
 
 
-# Load financial data
-with open("data/financial_data.json", "r") as file:
+# Load application-style financial data
+with open("data/users_financial_data.json", "r") as file:
     financial_data = json.load(file)
 
 
-def create_financial_context():
+def get_user_data(user_id):
+
+    for user in financial_data["users"]:
+
+        if user["user_id"] == user_id:
+            return user
+
+    return None
+
+
+def create_financial_context(user):
 
     return f"""
-Business Name:
-{financial_data["business"]["name"]}
+User:
+{user["name"]}
 
 Currency:
-{financial_data["business"]["currency"]}
+{user["currency"]}
 
 Monthly Income:
-PKR {financial_data["summary"]["monthly_income"]}
+PKR {user["summary"]["monthly_income"]}
 
 Monthly Expenses:
-PKR {financial_data["summary"]["monthly_expenses"]}
+PKR {user["summary"]["monthly_expenses"]}
 
 Receivables:
-PKR {financial_data["summary"]["receivables"]}
+PKR {user["summary"]["receivables"]}
 
 Payables:
-PKR {financial_data["summary"]["payables"]}
+PKR {user["summary"]["payables"]}
 
 Customers:
-{financial_data["customers"]}
+{user["customers"]}
 
 Expenses:
-{financial_data["expenses"]}
+{user["expenses"]}
 """
 
 
-def ask_ai(question):
+def ask_ai(user_id, question):
 
-    context = create_financial_context()
+    user = get_user_data(user_id)
+
+    if user is None:
+        raise ValueError("User ID not found.")
+
+    context = create_financial_context(user)
 
     prompt = f"""
 You are an AI Financial Assistant for HisabDo.
 
-Answer the user's question using ONLY the financial
-information provided below.
+Answer the user's question using ONLY the provided
+financial information.
 
 Do not invent financial numbers.
 
-If the requested information is not available,
-say that the information is not available.
+If the requested information is unavailable,
+clearly tell the user that the information is not available.
 
-Keep your answer short and easy to understand.
+Keep the answer short, clear and useful.
 
-Financial Data:
+Financial Information:
 {context}
 
 User Question:
