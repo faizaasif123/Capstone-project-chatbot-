@@ -58,9 +58,11 @@ def chat(request: ChatRequest):
             detail=str(e)
         )
 
-    except Exception:
+    except Exception as e:
+
+        print("CHATBOT ERROR:", repr(e))
 
         raise HTTPException(
             status_code=500,
-            detail="Unable to process the request."
+            detail=str(e)
         )
